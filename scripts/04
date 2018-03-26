@@ -1,0 +1,36 @@
+# Save the path to our hashsum
+
+SUM="/home/user/crontab_hashsum"
+
+# Fetch cron tasks, add them to buf
+# add our task to buf
+# crontab buf + rm buf
+
+if ! sudo crontab -l | grep "/home/user/04"
+	then
+		sudo crontab -l > buf
+		sudo echo "0 0 * * * /home/user/04" >> buf
+		sudo crontab buf
+		sudo rm buf
+fi
+
+# Check whether file exists
+# if no file with hashsum - file will be created
+# else if hashsum in file doesn't match
+# the actual hashsum - we send an email
+# with subject -s " . . . " to root
+# display message "File doesn't ... "
+
+if [ ! -f $SUM }
+	then
+		touch $SUM
+		md5sum /etc/crontab > $SUM
+	else
+		if ! md5sum -c $SUM | grep "OK"
+			then
+				mail -s "/etc/crontab" root <<< "File was modified!"
+		fi
+		md5sum /etc/crontab > $SUM
+fi
+
+# Credits: vfil
