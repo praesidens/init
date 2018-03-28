@@ -1,1 +1,1 @@
-arp -a
+ifconfig | grep "inet " | awk '{print $2}'

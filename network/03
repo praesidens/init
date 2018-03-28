@@ -1,1 +1,1 @@
-fconfig en0 | grep "ether " | cut -c8-
+mac=$(networksetup -listnetworkserviceorder | grep Wi-Fi | grep "Device: " | rev | cut -c2-4 | rev) | ifconfig $mac | grep "ether " | awk '{print $2}'

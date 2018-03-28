@@ -21,7 +21,7 @@ fi
 # with subject -s " . . . " to root
 # display message "File doesn't ... "
 
-if [ ! -f $SUM }
+if [ ! -f $SUM ]
 	then
 		touch $SUM
 		md5sum /etc/crontab > $SUM

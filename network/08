@@ -1,1 +1,3 @@
+#addr=$(nslookup slash16.org | grep -m1 "Address: " | awk '{print $2}') | whois $addr | grep "OrgName:" | awk '{print $2" " $3 " " $4}'
+
 Amazon Technologies Inc.

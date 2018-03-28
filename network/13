@@ -1,9 +1,1 @@
-#-I, --head
-#(HTTP/FTP/FILE)  
-#Fetch  the HTTP-header only! 
-#HTTP-servers feature the command HEAD which this uses to get nothing but the header of a document. 
-#When used on an FTP or FILE file, curl displays the file size and last modification time only.
-#-s – silent mode
-
-curl -I -s slash16.org | grep Server
-
+DHCP
